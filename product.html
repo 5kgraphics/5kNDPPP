@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Digital Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- GDPR Consent Banner -->
+    <div id="gdpr-consent" class="gdpr-banner">
+        <div class="gdpr-content">
+            <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. 
+               <a href="privacy.html">Learn more</a></p>
+            <div class="gdpr-buttons">
+                <button id="gdpr-accept" class="btn btn-primary">Accept</button>
+                <button id="gdpr-reject" class="btn btn-secondary">Reject</button>
+                <button id="gdpr-preferences" class="btn btn-text">Preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-store"></i>
+                        <span>DigitalStore</span>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <button id="search-button" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun" style="display: none;"></i>
+                    </button>
+                    <button class="cart-icon" id="cart-icon" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+                    <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a></li>
+                    <li><a href="data-rights.html"><i class="fas fa-user-lock"></i> Data Rights</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Product details will be loaded here by JavaScript -->
+            <div id="product-details-container">
+                <div class="loading" style="text-align: center; padding: 50px;">
+                    <div class="spinner"></div>
+                    <p>Loading product details...</p>
+                </div>
+            </div>
+            
+            <!-- Related Products Section -->
+            <div class="related-products" style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border-color);">
+                <h2 style="text-align: center; margin-bottom: 30px; color: var(--text-color);">You Might Also Like</h2>
+                <div class="products-grid" id="related-products">
+                    <!-- Related products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="close-cart" id="close-cart" aria-label="Close cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="checkout-btn">Proceed to Checkout</button>
+            <button class="btn btn-outline btn-block" id="clear-cart">Clear Cart</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DigitalStore</h3>
+                    <p>Your one-stop shop for premium digital products since 2023.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="data-rights.html">Data Rights</a></li>
+                        <li><a href="contact.html#support">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ & Help Center</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                        <li><a href="terms.html#refunds">Refund Policy</a></li>
+                        <li><a href="terms.html#licensing">Licensing</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 DigitalStore. All rights reserved.</p>
+                <p>GDPR Compliant | Secure Payments | 100% Digital Delivery</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+    // Product details page specific JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+        
+        if (!productId || isNaN(productId)) {
+            document.getElementById('product-details-container').innerHTML = `
+                <div class="error-message" style="text-align: center; padding: 50px;">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--danger-color); margin-bottom: 20px;"></i>
+                    <h3>Product Not Found</h3>
+                    <p>The requested product could not be found.</p>
+                    <a href="index.html" class="btn btn-primary" style="margin-top: 20px;">
+                        <i class="fas fa-arrow-left"></i> Return to Shop
+                    </a>
+                </div>
+            `;
+            return;
+        }
+        
+        const product = getProductById(productId);
+        
+        if (!product) {
+            document.getElementById('product-details-container').innerHTML = `
+                <div class="error-message" style="text-align: center; padding: 50px;">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--danger-color); margin-bottom: 20px;"></i>
+                    <h3>Product Not Found</h3>
+                    <p>The requested product could not be found.</p>
+                    <a href="index.html" class="btn btn-primary" style="margin-top: 20px;">
+                        <i class="fas fa-arrow-left"></i> Return to Shop
+                    </a>
+                </div>
+            `;
+            return;
+        }
+        
+        // Update page title
+        document.title = `${product.name} - Digital Store`;
+        
+        // Check if product is in cart
+        const cart = window.cart || { isProductInCart: () => false };
+        const isInCart = cart.isProductInCart ? cart.isProductInCart(productId) : false;
+        
+        // Display product details
+        const productDetailsContainer = document.getElementById('product-details-container');
+        productDetailsContainer.innerHTML = `
+            <div class="product-details">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="${product.image}" alt="${product.name}" id="product-main-image">
+                    </div>
+                </div>
+                <div class="product-info-details">
+                    <h1 id="product-title">${product.name}</h1>
+                    <div class="product-meta">
+                        <span class="product-category">${product.category}</span>
+                        <div class="product-price" style="font-size: 2rem; color: var(--primary-color);">$${product.price.toFixed(2)}</div>
+                    </div>
+                    <p class="product-description-full" id="product-description">${product.description}</p>
+                    
+                    <h3 style="color: var(--text-color); margin-top: 20px;">Features:</h3>
+                    <ul class="features-list" id="product-features">
+                        ${product.features.map(feature => `<li><i class="fas fa-check" style="color: var(--primary-color);"></i> ${feature}</li>`).join('')}
+                    </ul>
+                    
+                    <div class="details-actions">
+                        <button class="btn ${isInCart ? 'btn-secondary in-cart' : 'btn-primary'}" 
+                                id="add-to-cart-btn"
+                                data-id="${product.id}"
+                                ${isInCart ? 'disabled' : ''}>
+                            <i class="fas ${isInCart ? 'fa-check' : 'fa-cart-plus'}"></i> 
+                            ${isInCart ? 'Added to Cart' : 'Add to Cart'}
+                        </button>
+                        <a href="index.html" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Continue Shopping
+                        </a>
+                    </div>
+                    
+                    <div class="product-meta" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                        <p><i class="fas fa-shield-alt" style="color: var(--primary-color);"></i> 30-Day Money Back Guarantee</p>
+                        <p><i class="fas fa-download" style="color: var(--primary-color);"></i> Instant Digital Download</p>
+                        <p><i class="fas fa-life-ring" style="color: var(--primary-color);"></i> Free Lifetime Updates</p>
+                        <p><i class="fas fa-file-contract" style="color: var(--primary-color);"></i> Commercial License Included</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add event listener to add to cart button
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        if (addToCartBtn && !addToCartBtn.disabled) {
+            addToCartBtn.addEventListener('click', function() {
+                const productId = parseInt(this.getAttribute('data-id'));
+                if (addToCart(productId)) {
+                    this.classList.remove('btn-primary');
+                    this.classList.add('btn-secondary', 'in-cart');
+                    this.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
+                    this.disabled = true;
+                }
+            });
+        }
+        
+        // Load related products
+        loadRelatedProducts(productId, product.category);
+    });
+    
+    // Load related products
+    function loadRelatedProducts(currentProductId, category) {
+        const relatedProductsContainer = document.getElementById('related-products');
+        
+        // Get all products except the current one
+        let relatedProducts = window.products.filter(product => 
+            product.id !== currentProductId && product.category === category
+        );
+        
+        // If not enough products in same category, get random products
+        if (relatedProducts.length < 3) {
+            const otherProducts = window.products.filter(product => 
+                product.id !== currentProductId && product.category !== category
+            );
+            relatedProducts = [...relatedProducts, ...otherProducts.slice(0, 4 - relatedProducts.length)];
+        }
+        
+        // Limit to 4 products
+        relatedProducts = relatedProducts.slice(0, 4);
+        
+        if (relatedProducts.length === 0) {
+            relatedProductsContainer.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                    <p style="color: var(--text-secondary);">No related products found.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        let relatedProductsHTML = '';
+        
+        // Get cart items to check which products are already in cart
+        const cart = window.cart || { items: [] };
+        const cartProductIds = cart.items ? cart.items.map(item => item.id) : [];
+        
+        relatedProducts.forEach(product => {
+            const isInCart = cartProductIds.includes(product.id);
+            relatedProductsHTML += `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        <span class="product-badge">${product.category}</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description.substring(0, 80)}...</p>
+                        <div class="product-price">$${product.price.toFixed(2)}</div>
+                        <div class="product-actions">
+                            <button class="btn ${isInCart ? 'btn-secondary in-cart' : 'btn-primary'} add-to-cart" 
+                                    data-id="${product.id}"
+                                    ${isInCart ? 'disabled' : ''}>
+                                <i class="fas ${isInCart ? 'fa-check' : 'fa-cart-plus'}"></i> 
+                                ${isInCart ? 'In Cart' : 'Add to Cart'}
+                            </button>
+                            <a href="product.html?id=${product.id}" class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        relatedProductsContainer.innerHTML = relatedProductsHTML;
+        
+        // Add event listeners to add to cart buttons in related products
+        document.querySelectorAll('#related-products .add-to-cart').forEach(button => {
+            if (!button.disabled) {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    if (addToCart(productId)) {
+                        this.classList.remove('btn-primary');
+                        this.classList.add('btn-secondary', 'in-cart');
+                        this.innerHTML = '<i class="fas fa-check"></i> In Cart';
+                        this.disabled = true;
+                        
+                        // Also update the main add to cart button if it's the same product
+                        const mainAddToCartBtn = document.getElementById('add-to-cart-btn');
+                        if (mainAddToCartBtn && mainAddToCartBtn.getAttribute('data-id') == productId) {
+                            mainAddToCartBtn.classList.remove('btn-primary');
+                            mainAddToCartBtn.classList.add('btn-secondary', 'in-cart');
+                            mainAddToCartBtn.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
+                            mainAddToCartBtn.disabled = true;
+                        }
+                    }
+                });
+            }
+        });
+    }
+    </script>
+</body>
+</html>

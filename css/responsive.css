@@ -1,0 +1,242 @@
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .product-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-menu {
+        gap: 5px;
+    }
+    
+    .nav-menu a {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        z-index: 99;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu a {
+        padding: 15px;
+        justify-content: flex-start;
+        font-size: 1rem;
+    }
+    
+    .header-top {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .search-bar {
+        order: 3;
+        flex: 1 0 100%;
+        margin: 10px 0 0;
+        max-width: 100%;
+    }
+    
+    .controls-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-group select {
+        width: 100%;
+    }
+    
+    .sort-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .sort-options select {
+        width: 100%;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .gdpr-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .gdpr-buttons {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .header-actions {
+        gap: 10px;
+    }
+    
+    .theme-toggle, .cart-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .details-actions {
+        flex-direction: column;
+    }
+    
+    .about-content,
+    .faq-content,
+    .legal-content,
+    .contact-form,
+    .contact-info {
+        padding: 20px;
+    }
+    
+    .notification {
+        left: 20px;
+        right: 20px;
+        transform: translateY(-150%);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
+    
+    .product-title {
+        font-size: 1.1rem;
+        min-height: auto;
+    }
+    
+    .product-price {
+        font-size: 1.3rem;
+    }
+    
+    .logo span {
+        font-size: 1.3rem;
+    }
+}
+/* Fix for Hamburger Menu */
+@media (max-width: 768px) {
+    .header {
+        z-index: 1000;
+    }
+    
+    .navbar {
+        position: relative;
+        z-index: 999;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px; /* Adjust based on your header height */
+        left: -100%;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        z-index: 999;
+        border-top: 1px solid var(--border-color);
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+        position: relative;
+    }
+    
+    /* Fix for header actions on mobile */
+    .header-actions {
+        display: flex;
+        gap: 10px;
+    }
+    
+    /* Ensure cart and theme buttons work properly */
+    .theme-toggle, .cart-icon {
+        z-index: 1001;
+        position: relative;
+    }
+    
+    /* Make sure search bar doesn't interfere */
+    .search-bar {
+        margin: 10px 0;
+        order: 3;
+        width: 100%;
+    }
+}
